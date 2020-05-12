@@ -15,9 +15,10 @@ class CityDetail extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(bottom: 12.0),
+          padding: EdgeInsets.all(12),
           child: Text(
             location,
+            textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: 32.0,
                 color: Colors.white,

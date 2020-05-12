@@ -4,7 +4,7 @@ import 'package:weather_app/detail.dart';
 import 'package:intl/intl.dart';
 
 class BottomDetail extends StatelessWidget {
-  final Object daily;
+  final List<dynamic> daily;
 
   const BottomDetail({
     this.daily,
@@ -12,7 +12,6 @@ class BottomDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<dynamic> daily = this.daily;
     return Column(
       children: <Widget>[
         Padding(
@@ -31,7 +30,7 @@ class BottomDetail extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: List.generate(daily.length, (index) {
               if (index == 0) {
-                return Divider();
+                return Divider(); //SizedBox
               }
               var dateFormat = DateTime.fromMillisecondsSinceEpoch(
                   daily[index]['dt'] * 1000);
@@ -41,11 +40,11 @@ class BottomDetail extends StatelessWidget {
                     context,
                     "/detail-page",
                     arguments: DayWeather(
-                        DateFormat('d.m.y').format(dateFormat), daily[index]),
+                        DateFormat('d.MM.y').format(dateFormat), daily[index]),
                   );
                 },
                 child: BottomDetailItem(
-                  date: DateFormat('d.m.y').format(dateFormat),
+                  date: DateFormat('d.MM.y').format(dateFormat),
                   day: DateFormat('EEEE').format(dateFormat),
                   value: '${daily[index]['temp']['day'].round()} °C',
                   icon: Icon(
