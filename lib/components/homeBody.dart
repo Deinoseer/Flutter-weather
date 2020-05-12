@@ -17,6 +17,7 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBody extends State<HomeBody> {
+  bool _loading = true;
   Position _currentPosition;
   String _currentAddress;
   Map _weatherData;
@@ -40,6 +41,7 @@ class _HomeBody extends State<HomeBody> {
           .then((weather) {
         Map<String, dynamic> weaterData = jsonDecode(weather.body);
         setState(() {
+          _loading = false;
           _weatherData = weaterData;
         });
       });
@@ -58,6 +60,16 @@ class _HomeBody extends State<HomeBody> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             SearchCity(),
+            if (_loading == true) ...[
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                  ),
+                ),
+              )
+            ],
             if (_currentAddress != null)
               CityDetail(
                 location: _currentAddress,
@@ -91,13 +103,5 @@ class _HomeBody extends State<HomeBody> {
         ),
       ),
     );
-/*            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                ),
-              ),
-            );*/
   }
 }
