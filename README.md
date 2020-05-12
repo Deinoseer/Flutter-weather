@@ -7,6 +7,7 @@ How work:
 - Get by latitude and longitude weather from api.openweathermap.org
 - Render in a widgets
 - Showing 7 days weather forecast
+- Showing {feels weather like, wind speed, humdity} parameters
 
 ## Demo
 
