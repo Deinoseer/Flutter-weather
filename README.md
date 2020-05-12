@@ -1,6 +1,16 @@
 # weather_app
 
-A new Flutter project.
+Weather Flutter app
+How work:
+
+- Get user geoposition
+- Get by latitude and longitude weather from api.openweathermap.org
+- Render in a widgets
+- Showing 7 days weather forecast
+
+## Demo
+
+![Demo Image](demo.jpg)
 
 ## Getting Started
 
