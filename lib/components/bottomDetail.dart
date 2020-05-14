@@ -39,8 +39,7 @@ class BottomDetail extends StatelessWidget {
                   Navigator.pushNamed(
                     context,
                     "/detail-page",
-                    arguments: DayWeather(
-                        DateFormat('d.MM.y').format(dateFormat), daily[index]),
+                    arguments: DayWeather(dateFormat, daily[index]),
                   );
                 },
                 child: BottomDetailItem(

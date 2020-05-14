@@ -78,15 +78,19 @@ class _HomeBody extends State<HomeBody> {
             if (_weatherData != null) ...[
               Padding(
                 padding: const EdgeInsets.only(top: 40.0, bottom: 30.0),
-                child: TemperatureDetail(
-                  icon: Icon(
-                    weatherIcon(_weatherData['current']['weather'][0]['main']),
-                    size: 50,
-                    color: Colors.white,
+                child: Center(
+                  child: TemperatureDetail(
+                    icon: Icon(
+                      weatherIcon(
+                          _weatherData['current']['weather'][0]['main']),
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    temperature:
+                        '${_weatherData['current']['temp'].round()} °C',
+                    weather: toBeginningOfSentenceCase(
+                        _weatherData['current']['weather'][0]['description']),
                   ),
-                  temperature: '${_weatherData['current']['temp'].round()} °C',
-                  weather: toBeginningOfSentenceCase(
-                      _weatherData['current']['weather'][0]['description']),
                 ),
               ),
               ExtraWeatherDetail(

@@ -18,6 +18,9 @@ class SearchCity extends StatelessWidget {
           labelStyle: TextStyle(color: Colors.white),
         ),
         style: TextStyle(color: Colors.white),
+        onEditingComplete: () {
+          FocusScope.of(context).unfocus();
+        },
       ),
     );
   }
